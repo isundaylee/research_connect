@@ -18,6 +18,7 @@ gem 'gon'
 gem 'underscore-rails'
 
 gem 'rails_12factor'
+gem 'pg'
 
 group :development, :test do
   gem 'byebug'
