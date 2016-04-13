@@ -1,0 +1,18 @@
+%h1 Find Volunteers
+
+.filters
+  %form#add_filter
+    %select{name: 'type'}
+      %option{value: 'gender'} Gender
+      %option{value: 'race'} Race
+      %option{value: 'language'} Language
+      %option{value: 'age'} Age
+    %input{type: 'submit', value: 'Add Filter'}
+
+.matches
+  - @volunteers.each_with_index do |v, i|
+    .match{'data-id' => v.id}
+      %h3= v.name
+      %p.info= "#{v.race} #{v.gender}"
+      %p.info= "Age #{v.age}"
+      %p.langs= "Speaks #{human_readable_languages(v.languages)}. "

@@ -1,0 +1,65 @@
+@import 'common'
+
+.filters
+  width: 38%
+  float: left
+  // background-color: white
+
+  #add_filter
+    overflow: auto
+
+    select
+      width: 75%
+      float: left
+      height: 45px
+      background-color: white
+      font-size: 1em
+      line-height: 45px
+      padding-left: 10px
+
+    [type=submit]
+      width: 20%
+      float: right
+      height: 45px
+      background-color: $color2
+      border: none
+      color: white
+      font-weight: 400
+
+
+.matches
+  width: 58%
+  float: right
+  // background-color: white
+
+  .match
+    width: 25%
+    margin-left: 4%
+    margin-bottom: 20px
+    height: 200px
+    display: inline-block
+    float: left
+    background-color: $color2
+    padding: 0 16px
+
+    &:nth-child(3n+1)
+      margin-left: 0
+
+    h3
+      font-weight: 400
+      font-size: 1.1em
+      color: white
+      margin-bottom: 0
+
+    .info
+      font-weight: 300
+      color: white
+      margin-top: 0
+      font-size: 0.9em
+      margin-bottom: 0
+
+    .langs
+      font-weight: 300
+      color: white
+      margin-top: 5px
+      margin-bottom: 0
