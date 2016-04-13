@@ -10,7 +10,7 @@ class Volunteer < ActiveRecord::Base
       gender: gender, 
       race: race, 
       age: age, 
-      languages: languages
+      language: languages
     }
   end
 end

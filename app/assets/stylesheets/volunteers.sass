@@ -26,11 +26,45 @@
       color: white
       font-weight: 400
 
+  .filter
+    width: 92%
+    background-color: $color2
+    margin-top: 20px
+    padding: 15px 4%
+    color: white
+    // display: none
+
+    .remove
+      float: right
+      color: white
+      font-size: 0.8em
+
+    h2
+      float: left
+      color: white
+      margin-top: 0
+      font-size: 1.2em
+      font-weight: 400
+
+    .controls
+      clear: both
+      overflow: auto
+
+      input[type=text]
+        padding: 0 5px
+        width: 44%
+        overflow: auto
+
+        &:first-child
+          float: left
+
+        &:last-child
+          float: right
+
 
 .matches
-  width: 58%
+  width: 62%
   float: right
-  // background-color: white
 
   .match
     width: 25%
@@ -41,9 +75,6 @@
     float: left
     background-color: $color2
     padding: 0 16px
-
-    &:nth-child(3n+1)
-      margin-left: 0
 
     h3
       font-weight: 400

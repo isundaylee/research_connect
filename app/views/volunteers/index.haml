@@ -2,12 +2,42 @@
 
 .filters
   %form#add_filter
-    %select{name: 'type'}
+    %select{name: 'filter'}
       %option{value: 'gender'} Gender
       %option{value: 'race'} Race
       %option{value: 'language'} Language
       %option{value: 'age'} Age
     %input{type: 'submit', value: 'Add Filter'}
+
+  .filter{'data-filter' => 'gender'}
+    %h2 Gender (match any)
+    %a.remove{href: '#'} Remove filter
+    %div.controls
+      - Volunteer::GENDERS.each do |g|
+        %input{type: 'checkbox', name: 'gender', value: g, checked: true}= g
+
+  .filter{'data-filter' => 'race'}
+    %h2 Race (match any)
+    %a.remove{href: '#'} Remove filter
+    %div.controls
+      - Volunteer::RACES.each do |r|
+        %input{type: 'checkbox', name: 'race', value: r, checked: true}= r
+        %br/
+
+  .filter{'data-filter' => 'language'}
+    %h2 Language (match all)
+    %a.remove{href: '#'} Remove filter
+    %div.controls
+      - Volunteer::LANGUAGES.each do |l|
+        %input{type: 'checkbox', name: 'language', value: l, checked: false}= l
+        %br/
+
+  .filter{'data-filter' => 'age'}
+    %h2 Age (both fields optional)
+    %a.remove{href: '#'} Remove filter
+    %div.controls
+      %input{type: 'text', name: 'min_age', placeholder: 'Minimal'}
+      %input{type: 'text', name: 'max_age', placeholder: 'Maximal'}
 
 .matches
   - @volunteers.each_with_index do |v, i|
