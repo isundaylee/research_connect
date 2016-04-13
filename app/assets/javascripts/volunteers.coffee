@@ -1,4 +1,6 @@
 ready = ->
+  return unless $('body#volunteers_index').length > 0
+  
   processMatchFilter = (prev, f, func) ->
     filter = $('[data-filter=' + f + ']')
 

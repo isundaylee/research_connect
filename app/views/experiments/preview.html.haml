@@ -1,0 +1,12 @@
+%h1= @fields['subject']
+%p.description= @fields['description']
+
+- unless @fields['start_date'].nil? || @fields['end_date'].nil?
+  %span.keyword= "From #{@fields['start_date']} to #{@fields['end_date']}"
+
+- unless @fields['location'].nil?
+  %span.keyword= @fields['location']
+
+- unless @fields['keywords'].nil?
+  - @fields['keywords'].split(',').map(&:strip).each do |k|
+    %span.keyword= k

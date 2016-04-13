@@ -8,7 +8,7 @@
     = csrf_meta_tags
     = include_gon
 
-  %body
+  %body{id: "#{controller_name}_#{action_name}"}
     %header
       .container
         #banner Research Connect

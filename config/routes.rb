@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   root 'volunteers#index'
 
+  resources :experiments, only: [:new, :create] do
+    collection do
+      post 'preview'
+      get 'success'
+    end
+  end
+
   resources :volunteers, only: [:index] do
   end
 

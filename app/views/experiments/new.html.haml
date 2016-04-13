@@ -1,0 +1,44 @@
+%h1 Post Research Experiment
+
+.fields
+  %form#add_field
+    %select{name: 'field'}
+      %option{value: 'date'} Date
+      %option{value: 'location'} Location
+      %option{value: 'keywords'} Keywords
+    %input{type: 'submit', value: 'Add Field'}
+
+  .field.essential{'data-field' => 'subject'}
+    %h2 Subject
+    .controls
+      %input{type: 'text', name: 'subject', placeholder: 'Subject of the experiment. '}/
+
+  .field.essential{'data-field' => 'description'}
+    %h2 Description
+    .controls
+      %textarea{name: 'description', placeholder: 'Description of the experiment. '}
+
+  .field{'data-field' => 'date'}
+    %h2 Date
+    %a.remove{href: '#'} Remove field
+    .controls
+      %input{type: 'text', name: 'start_date', placeholder: 'Start date, e.g. 2015-09-01. '}/
+      %input{type: 'text', name: 'end_date', placeholder: 'End date, e.g. 2015-09-10. '}/
+
+  .field{'data-field' => 'location'}
+    %h2 Location
+    %a.remove{href: '#'} Remove field
+    .controls
+      %input{type: 'text', name: 'location', placeholder: 'Location of the experiment. '}/
+
+  .field{'data-field' => 'keywords'}
+    %h2 Keywords
+    %a.remove{href: '#'} Remove field
+    .controls
+      %input{type: 'text', name: 'keywords', placeholder: 'Keywords of the experiment, separated by commas. '}/
+
+  = form_tag preview_experiments_path, {target: '_blank', id: 'preview_form'} do |f|
+    %input{type: 'hidden', name: 'fields'}/
+
+  = link_to 'Preview in New Window', '#', class: 'button', id: 'preview'
+  = link_to 'Post', success_experiments_path, class: 'button'
