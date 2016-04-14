@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :volunteers, only: [:index] do
+    collection do
+      get 'chat'
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

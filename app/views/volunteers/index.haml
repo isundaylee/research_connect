@@ -41,8 +41,9 @@
 
 .matches
   - @volunteers.each_with_index do |v, i|
-    .match{'data-id' => v.id}
-      %h3= v.name
-      %p.info= "#{v.race} #{v.gender}"
-      %p.info= "Age #{v.age}"
-      %p.langs= "Speaks #{human_readable_languages(v.languages)}. "
+    %a{href: chat_volunteers_path, target: '_blank'}
+      .match{'data-id' => v.id}
+        %h3= v.name
+        %p.info= "#{v.race} #{v.gender}"
+        %p.info= "Age #{v.age}"
+        %p.langs= "Speaks #{human_readable_languages(v.languages)}. "
