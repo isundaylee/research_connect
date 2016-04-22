@@ -1,13 +1,40 @@
 @import 'common'
 
 #volunteers_chat
-  p
-    color: white
-    background-color: $color2
-    display: inline-block
-    padding: 5px 10px
-    border-radius: 5px
-    width: auto
+  #chatbox
+    overflow: auto
+    width: 40%
+
+    p
+      clear: both
+      margin: 0
+
+    .name
+      font-size: 0.9em
+      color: #FFF
+      margin: 0 5px 2px
+
+    .msg
+      color: white
+      background-color: $color2
+      display: inline-block
+      padding: 5px 10px
+      border-radius: 5px
+      width: auto
+      margin-bottom: 20px
+      max-width: 60%
+
+    .mine
+      float: right
+
+    .theirs
+      float: left
+
+    input
+      width: 100%
+      font-size: 1em
+      padding: 10px
+
 
 .filters
   width: 38%

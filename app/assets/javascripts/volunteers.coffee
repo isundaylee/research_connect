@@ -66,5 +66,16 @@ ready = ->
 
   renderVolunteers()
 
+readyChat = ->
+  return unless $('body#volunteers_chat').length > 0
+
+  $('input').keydown (e) ->
+    if e.keyCode == 13
+      $('input').before($('<p>').addClass('name mine').text('Me'))
+      $('input').before($('<p>').addClass('msg mine').text($('input').val()))
+      $('input').val('')
+
 $(document).ready(ready)
+$(document).ready(readyChat)
 $(document).on('page:load', ready)
+$(document).on('page:load', readyChat)
