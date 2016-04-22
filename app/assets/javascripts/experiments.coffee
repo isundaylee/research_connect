@@ -15,16 +15,23 @@ ready = ->
 
   $('#preview').click ->
     fields = {}
+    error = ''
 
     fields.subject = $('[name=subject]').val() if has_field('subject')
-    fields.start_date = $('[name=start_date]').val() if has_field('date')
-    fields.end_date = $('[name=end_date]').val() if has_field('date')
+    if has_field('date')
+      fields.start_date = $('[name=start_date]').val()
+      fields.end_date = $('[name=end_date]').val()
+      error += 'Invalid start date. ' unless /\d{4}-\d{2}-\d{2}/.test(fields.start_date)
+      error += 'Invalid end date. ' unless /\d{4}-\d{2}-\d{2}/.test(fields.end_date)
     fields.description = $('[name=description]').val() if has_field('description')
     fields.keywords = $('[name=keywords]').val() if has_field('keywords')
     fields.keywords = $('[name=location]').val() if has_field('location')
 
-    $('[name=fields]').val(JSON.stringify(fields))
-    $('#preview_form').submit()
+    if error == ''
+      $('[name=fields]').val(JSON.stringify(fields))
+      $('#preview_form').submit()
+    else
+      $('.error').text(error)
 
     false
 
