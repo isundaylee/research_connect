@@ -1,12 +1,6 @@
 %h1 Post Research Experiment
 
 .fields
-  %form#add_field
-    %select{name: 'field'}
-      %option{value: 'date'} Date
-      %option{value: 'location'} Location
-      %option{value: 'keywords'} Keywords
-    %input{type: 'submit', value: 'Add Field'}
 
   .field.essential{'data-field' => 'subject'}
     %h2 Subject
@@ -37,6 +31,13 @@
     %a.remove{href: '#'} Remove field
     .controls
       %input{type: 'text', name: 'keywords', placeholder: 'Keywords of the experiment, separated by commas. '}/
+      
+  %form#add_field
+    %select{name: 'field'}
+      %option{value: 'date'} Date
+      %option{value: 'location'} Location
+      %option{value: 'keywords'} Keywords
+    %input{type: 'submit', value: 'Add Field'}
 
   = form_tag preview_experiments_path, {target: '_blank', id: 'preview_form'} do |f|
     %input{type: 'hidden', name: 'fields'}/
