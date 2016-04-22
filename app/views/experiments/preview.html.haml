@@ -1,5 +1,5 @@
 %h1= @fields['subject']
-%p.description= @fields['description']
+= simple_format @fields['description'], class: 'description'
 
 - unless @fields['start_date'].nil? || @fields['end_date'].nil?
   %span.keyword= "From #{@fields['start_date']} to #{@fields['end_date']}"
