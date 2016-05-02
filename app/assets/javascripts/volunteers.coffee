@@ -49,12 +49,15 @@ ready = ->
 
   $('.remove').click ->
     $(this).parent('.filter').hide()
+    filter = $(this).parent('.filter').data('filter')
+    $('#add_filter select').append($('<option>').attr('value', filter).text(filter.charAt(0).toUpperCase() + filter.substr(1)))
     renderVolunteers()
     return
 
   $('#add_filter').submit ->
     filter = $(this).find('select').val()
     $('[data-filter=' + filter + ']').show()
+    $('option[value=' + filter + ']').remove()
     renderVolunteers()
     return false
 

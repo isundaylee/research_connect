@@ -3,11 +3,14 @@ ready = ->
 
   $('.remove').click ->
     $(this).parent('.field').hide()
+    field = $(this).parent('.field').data('field')
+    $('#add_field select').append($('<option>').attr('value', field).text(field.charAt(0).toUpperCase() + field.substr(1)))
     false
 
   $('#add_field').submit ->
     field = $(this).find('select').val()
     $('[data-field=' + field + ']').show()
+    $('option[value=' + field + ']').remove()
     false
 
   has_field = (field) ->
