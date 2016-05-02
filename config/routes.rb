@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'volunteers#index'
+  root 'pages#homepage'
 
   resources :experiments, only: [:new, :create] do
     collection do
