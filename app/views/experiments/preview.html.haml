@@ -10,3 +10,5 @@
 - unless @fields['keywords'].nil?
   - @fields['keywords'].split(',').map(&:strip).each do |k|
     %span.keyword= k
+
+%a.button{:href => "javascript: close(); "} Go Back
