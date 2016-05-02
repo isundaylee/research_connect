@@ -10,6 +10,7 @@ ready = ->
   $('#add_field').submit ->
     field = $(this).find('select').val()
     $('[data-field=' + field + ']').show()
+    $('[data-field=' + field + ']').detach().insertBefore($('#add_field'))
     $('option[value=' + field + ']').remove()
     false
 

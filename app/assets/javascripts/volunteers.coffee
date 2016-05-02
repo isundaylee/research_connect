@@ -57,6 +57,7 @@ ready = ->
   $('#add_filter').submit ->
     filter = $(this).find('select').val()
     $('[data-filter=' + filter + ']').show()
+    $('[data-filter=' + filter + ']').detach().appendTo($('.filters'))
     $('option[value=' + filter + ']').remove()
     renderVolunteers()
     return false
@@ -66,6 +67,10 @@ ready = ->
 
   $('.filter input').keyup ->
     renderVolunteers()
+
+  $('.matches a').click ->
+    $(this).find('.match').addClass('visited')
+    true
 
   renderVolunteers()
 
