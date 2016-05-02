@@ -7,5 +7,7 @@ class ExperimentsController < ApplicationController
   end
 
   def success
+    flash[:success] = "You have successfully posted a experiment post! What else do you want to do? "
+    redirect_to :root
   end
 end
