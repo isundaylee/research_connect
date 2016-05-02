@@ -9,9 +9,12 @@
     = include_gon
 
   %body{id: "#{controller_name}_#{action_name}"}
+    - if flash[:success].present?
+      :javascript
+        alert('a')
     %header
       .container
         %a#banner{href: root_path} Research Connect
-        #slogan Recruit, communicate, schedule. 
+        #slogan Reach out, recruit & communicate. 
     .container
       = yield
