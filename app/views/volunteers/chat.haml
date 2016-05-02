@@ -1,16 +1,16 @@
-%h1 Chat
+%h1= "Chat with #{params[:name]}"
 
 #chatbox
   %p.name.mine Me
   %p.msg.mine Hello, how is it going? 
 
-  %p.name.theirs John Smith
+  %p.name.theirs= params[:name]
   %p.msg.theirs Good! 
 
   %p.name.mine Me
   %p.msg.mine I am doing this bilingual experiment right now. You seem to be the perfect candidate for me. Are you interested in learning more about it? 
 
-  %p.name.theirs John Smith
+  %p.name.theirs= params[:name]
   %p.msg.theirs Sure! What is it about? 
 
   %input{type: 'text', placeholder: 'Send your messages here. '}

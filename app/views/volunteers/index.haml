@@ -41,7 +41,7 @@
 
 .matches
   - @volunteers.each_with_index do |v, i|
-    %a{href: chat_volunteers_path, target: '_blank'}
+    %a{href: chat_volunteers_path(name: v.name), target: '_blank'}
       .match{'data-id' => v.id}
         %h3= v.name
         %p.info= "#{v.race} #{v.gender}"
